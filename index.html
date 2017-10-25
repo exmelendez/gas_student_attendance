@@ -1,0 +1,16 @@
+<!-- This HTML is for a single entry text input writing to a Google sheet -->
+<script>
+
+function formSubmit(){
+ google.script.run.doSomething(document.forms[0]);
+ document.getElementById("testForm").reset();
+}
+
+</script>
+
+<form id="testForm">
+
+<input type="text" name="textBoxName" />
+<input type="button" value="Submit" onclick="formSubmit()" />
+
+</form>

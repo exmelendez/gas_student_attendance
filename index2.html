@@ -1,0 +1,18 @@
+<!-- This HTML is for multiple entries text input writing to a Google sheet -->
+<script>
+
+function formSubmit(){
+ google.script.run.doSomething2(document.forms[0]);
+ document.getElementById("testForm").reset();
+}
+
+</script>
+
+<form id="testForm">
+
+<input type="text" name="scoreOneBox" />
+<input type="text" name="scoreTwoBox" />
+<input type="text" name="scoreThreeBox" />
+<input type="button" value="Submit" onclick="formSubmit()" />
+
+</form>
