@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    
+    <form>
+      <p><em>Select your name from the list</em></p>
+      <select id="select">
+      <option disabled selected value> -- select -- </option>
+      <? var options = getApplicants()
+        for (var i = 0; i < options.length; i++) { ?>
+          <option><?= options[i] ?></option>
+       <? } ?>
+      </select>
+      &nbsp;<a id="btn">Display</a>
+    </form>
+    
+  </body>
+</html>
+
+
