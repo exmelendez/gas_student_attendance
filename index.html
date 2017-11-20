@@ -17,14 +17,28 @@
       <p><em>Select your name from the list</em></p>
       <select id="select">
       <option disabled selected value> -- select -- </option>
-      <? var options = getStudents()
+      <? var options = getStudents();
         for (var i = 0; i < options.length; i++) { ?>
           <option><?= options[i] ?></option>
        <? } ?>
       </select>
       &nbsp;<a id="btn">Display</a>
     </form>
+    
+    <hr>
+    <p><strong><span id ="studentName"></span></strong></p>
+    
     </center>
+    
+    
+    <script>
+      document.querySelector('#btn').addEventListener("click", function () {
+        var name = document.getElementById("select").value;
+        var data = google.script.run.withSuccessHandler(function (data) {
+          document.querySelector("#studentName").innerHTML = data.name;          
+        }).getData(name);
+      });
+    </script>
     
   </body>
 </html>
