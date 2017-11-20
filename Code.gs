@@ -7,3 +7,11 @@ function doGet() {
   .createTemplateFromFile('index')
   .evaluate(); 
 }
+
+function getStudents() {
+  return students.getRange(2, 1, students.getLastRow() - 1)
+    .getValues()
+    .reduce(function (a, b) { // flatten array
+      return a.concat(b[0])
+  }, []);
+}

@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base target="_top">
+    
+    <style>
+      #btn {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+    
   </head>
   <body>
     
+    <center>
     <form>
       <p><em>Select your name from the list</em></p>
       <select id="select">
       <option disabled selected value> -- select -- </option>
-      <? var options = getApplicants()
+      <? var options = getStudents()
         for (var i = 0; i < options.length; i++) { ?>
           <option><?= options[i] ?></option>
        <? } ?>
       </select>
       &nbsp;<a id="btn">Display</a>
     </form>
+    </center>
     
   </body>
 </html>
