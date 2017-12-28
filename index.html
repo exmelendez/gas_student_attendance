@@ -2,12 +2,88 @@
 <html>
   <head>
     
-    <style>
-      #btn {
+<style>
+
+<!--
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+}
+
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+-->
+
+#btn {
         text-decoration: underline;
         cursor: pointer;
       }
-    </style>
+
+</style>
     
   </head>
   <body>
@@ -22,22 +98,73 @@
           <option><?= options[i] ?></option>
        <? } ?>
       </select>
-      &nbsp;<a id="btn">Display</a>
+      &nbsp;<!-- <button onclick="btnClick()">Button</button> -->
+      <a id="btn">Sign-In</a>
     </form>
     
     <hr>
-    <p><strong><span id ="studentName"></span></strong></p>
+    <p><strong><span id ="statusMsg"></span></strong></p>
     
+    <!--
+    <div id="snackbar">You did it</div>
+    
+    <div class="alert success">
+  <span class="closebtn">&times;</span>  
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+   --> 
     </center>
     
     
     <script>
+    /*
       document.querySelector('#btn').addEventListener("click", function () {
         var name = document.getElementById("select").value;
         var data = google.script.run.withSuccessHandler(function (data) {
-          document.querySelector("#studentName").innerHTML = data.name;          
+          document.querySelector("#statusMsg").innerHTML = data.name;          
         }).getData(name);
       });
+      */
+      
+      document.querySelector('#btn').addEventListener("click", someMsg);
+      
+      function someMsg(){
+       var name = document.getElementById("select").value;
+       var stringMsg = <?=testMsg2(?>name<?=)?>;
+       document.querySelector("#statusMsg").innerHTML = stringMsg;
+      }
+                
+      /*
+      
+      function btnClick(){
+      var data = google.script.run.withSuccessHandler(function (data) {
+          document.querySelector("#statusMsg").innerHTML = "test Msg";          
+        }).getData(name);
+      });
+      }
+    
+    
+      
+    function myFunction() {
+    var x = document.getElementById("snackbar")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    
+    
+    function myFunction() {
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+
+for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+    }
+}
+   */   
     </script>
     
   </body>
