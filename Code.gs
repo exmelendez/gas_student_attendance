@@ -1,8 +1,8 @@
 var ss = SpreadsheetApp.openById("1WCgggJcrpLfhtxrBjurWriF7Y5xrMVLXypvfNZfYoYk");
 var students = ss.getSheetByName("students");
+var transactions = ss.getSheetByName("transactions");
 var allData = students.getRange(2, 1, students.getLastRow(), students.getLastColumn()).getValues();
-
-Logger.log(saveDateToRow(nameRow("Eddie Murphy"),createTimeStamp()));
+var transactionList = transactions.getRange(2, 1, transactions.getLastRow(), transactions.getLastColumn()).getValues();
 
 function doGet() { 
   return HtmlService
@@ -28,27 +28,63 @@ function getData(name) {
   }
 }
 
-//Checks row of student names to ensure name is present
-function namePresent(name){
+//Saves name + timestamp data to SS if they are not already checked in. If not a message is returned stating person already checked in.
+function checkIn(name){
+  var nameArray = nameRows(name);
+  var date = currentDate();
+  var dateArray = dateRows(date);
   
-  for (var i = 1; i < allData.length; i++){
-    if (allData[i][0] === name && name != ""){
-      return true;
+  if (nameArray.length > 0 && dateArray.length > 0){
+    for (var i = 0; i < dateArray.length; i++){
+      for (var j = 0; j < nameArray.length; j++){
+        if (nameArray[j] === dateArray[i]){
+          Logger.log(name + " already checked in.");
+          return "Already checked in today.";
+        }
+      }
     }
   }
-  return false;
+  
+  addDataToSS(name);
+  Logger.log("checkIn function ran. " + name + " saved to SS at " + createTimeStamp("time") + " .");
+  return name + " Checked In";
+  
 }
 
-//Uses name string to find row/location on Spreadsheet
-function nameRow(name){
-  var nameRow;
+//Adds a row w/ specified data to spreadsheet
+function addDataToSS (name) {
+  transactions.appendRow([name, currentDate(), createTimeStamp("time")]);
+}
+
+//returns current date formatted like Apr 15 2017
+function currentDate(){
+  var date = Date();
+  return date.charAt(4) + date.charAt(5) + date.charAt(6) + " " + date.charAt(8) + date.charAt(9) + " " + date.charAt(11) + date.charAt(12) + date.charAt(13) + date.charAt(14);
+}
+
+//returns array of rows with matching specified date
+function dateRows(date){
+  var matchingDateRows = [];
   
-  for (var i = 0; i < allData.length; i++){
-    if (allData[i][0] === name){
-      nameRow = i;
+  for (var i = 0; i < transactionList.length; i++){
+    var strDate = String(transactionList[i][1]);
+    if (strDate.substring(4, 15) === date){
+      matchingDateRows.push(i);
+    }
+  } 
+    return matchingDateRows;
+}
+
+//returns array of rows with matching names
+function nameRows(name){
+  var matchingNameRows = [];
+  
+  for (var i = 0; i < transactionList.length; i++){
+    if (transactionList[i][0] === name){
+      matchingNameRows.push(i);
     }
   }
-    return nameRow;
+    return matchingNameRows;
 }
 
 //returns a string of the full current date by default or can be filtered by string keyword for a specific part of the string date.
@@ -71,16 +107,45 @@ function createTimeStamp(input){
   }
 }
 
+
+/*
+**
+***
+
+Functions below this are not currently being used
+
+***
+**
+*/
+
+//Checks row of dates to check for prescence of current date
+function datePresent(date){
+  
+  for (var i = 1; i < transactionList.length; i++){
+    if (transactionList[i][1] === date && date != ""){
+      return true;
+    }
+  }
+  return false;
+}
+
+//Save data to specific row
 function saveDateToRow(row, time){
 
   students.getRange(row + 2, 2).setValue(time);
 }
 
-function testMsg(){
-  return "JavaScript Msg";
+//Checks row of student names to check for it's prescence
+function namePresent(name){
+  
+  for (var i = 1; i < allData.length; i++){
+    if (allData[i][0] === name && name != ""){
+      return true;
+    }
+  }
+  return false;
 }
 
-function testMsg2(input){
-  String(input);
-  return input;
+function testMsg(){
+  return "JavaScript Msg";
 }
