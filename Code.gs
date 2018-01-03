@@ -4,15 +4,6 @@ var transactions = ss.getSheetByName("transactions");
 var allData = students.getRange(2, 1, students.getLastRow(), students.getLastColumn()).getValues();
 var transactionList = transactions.getRange(2, 1, transactions.getLastRow(), transactions.getLastColumn()).getValues();
 
-/*
-
-to do:
-
-fix so that if student accidentally hits check-in without selecting it does not get input into ss
-
-
-*/
-
 function doGet() { 
   return HtmlService
   .createTemplateFromFile('index')
@@ -37,6 +28,10 @@ function checkIn(name){
   var nameArray = nameRows(name);
   var date = currentDate();
   var dateArray = dateRows(date);
+  
+  if (name === "" || name === " -- select -- "){
+    return "Not a valid selection";
+  }
   
   if (nameArray.length > 0 && dateArray.length > 0){
     for (var i = 0; i < dateArray.length; i++){
