@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <style>
+      
+      #btn {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      
+    </style>
+  </head>
+  <body>
+  <center>
+  <form id="checkInForm">
+      <p><em>Select your name from the list</em></p>
+      
+      <select id="select">
+      <option disabled selected value> -- select -- </option>
+      <? var options = getStudents()
+        for (var i = 0; i < options.length; i++) { ?>
+          <option><?= options[i] ?></option>
+       <? } ?>
+      </select>
+      <a id="btn">Check-In</a>
+    </form>
+    </center>
+  
+  <hr>
+  <center>
+    <div id="student_status"></div>
+    </center>
+    
+     <script>
+    
+          document.querySelector('#btn').addEventListener("click", myFunction);
+          
+          function myFunction(){
+          var name = document.getElementById("select").value;
+            google.script.run.withSuccessHandler(onSuccess)
+          .checkIn(name);
+          }
+          
+          function onSuccess(statusMsg){
+       var div = document.getElementById("student_status");
+       div.innerHTML = statusMsg;
+       document.getElementById("checkInForm").reset();
+      }
+          
+    </script>
+  </body>
+</html>
