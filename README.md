@@ -33,7 +33,8 @@ On the front end, the individual will receive one of the following error message
 
 ![Image of check-in duplicate error](http://gdurl.com/ombF)
 
-### The Inner Workings
+
+## The Inner Workings
 
 **The dropdown menu:** All of the selections available are actually being pulled from a a tab on a spreadsheet. ![Image of dropdown](http://gdurl.com/tAUR)
 
