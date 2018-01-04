@@ -45,7 +45,7 @@ Clicking on the spreadsheet button will allow you to view the spreadsheet where 
 ![student list](http://gdurl.com/4u6l)
 
 
-**Checking In:** The check in process is rather straight forward. A student will select their name from the dropdown menu then cick on the *Check-In* button. Aftwards the student is presented with a confirmation and the time of their check-in.
+**Checking In:** The check in process is straight forward. A student will select their name from the dropdown menu then click on the *Check-In* button. Aftwards the student is presented with a confirmation and the time of their check-in.
 
 ![check-in verification](http://gdurl.com/OmD7)
 
@@ -54,3 +54,13 @@ Clicking on the spreadsheet button will also allow you to view and confirm the e
 ![transactions tab](http://gdurl.com/yDkR)
 
 ![checked-in entries](http://gdurl.com/8ZDU)
+
+
+## Resetting
+For demonstration purposes I have created a function to reset and clear the spreadsheet. An individual can only be checked-in once a day which would have prevented others from using or viewing it in action. Clicking on the *reset* button will erase all rows from the spreadsheet and present you with a confirmation message.
+
+![Reset button](http://gdurl.com/ZFRa)
+
+![reset confirmation message](http://gdurl.com/JOMF)
+
+![empty spreadsheet](http://gdurl.com/Ytz3z)
