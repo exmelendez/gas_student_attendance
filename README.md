@@ -2,6 +2,7 @@
 **Objective:** Create a way for students to check themselves in while saving name, date and time data to a Google Sheet.
 
 **Try it out:** [https://script.google.com/macros/s/AKfycbzAgy1WyRXrFauwN4l3RX1WMhQszR4yE30QLzuc-3El7SEnhvw/exec](https://script.google.com/macros/s/AKfycbzAgy1WyRXrFauwN4l3RX1WMhQszR4yE30QLzuc-3El7SEnhvw/exec)
+>Disclaimer: _Google account needed to view/access_
 
 ### Error prevention + Duplicate check
 Naturally, human error is a possibility, I needed to ensure there were methods to prevent students from checking-in more than once and to prevent from the default drop menu selecter being entered into the spreadsheet. The first *if statement* ensures that the selected option is not null or the default *-- select --* option.
