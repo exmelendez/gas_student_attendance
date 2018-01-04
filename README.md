@@ -29,5 +29,4 @@ if (name === "" || name === " -- select -- "){
 
 On the front end, the individual will receive one of the following error messages...
 
-![Image of error message]
-(https://octodex.github.com/images/yaktocat.png)
+![Image of error message](https://octodex.github.com/images/yaktocat.png)
