@@ -58,9 +58,17 @@ Clicking on the spreadsheet button will also allow you to view and confirm the e
 
 ## Resetting
 For demonstration purposes I have created a function to reset and clear the spreadsheet. An individual can only be checked-in once a day which would have prevented others from using or viewing it in action. Clicking on the *reset* button will erase all rows from the spreadsheet and present you with a confirmation message.
+```javascript
+function removeRows(){
+  transactions.deleteRows(2, transactions.getLastRow()-1);
+}
+```
 
 ![Reset button](http://gdurl.com/ZFRa)
 
 ![reset confirmation message](http://gdurl.com/JOMF)
 
 ![empty spreadsheet](http://gdurl.com/Ytz3z)
+
+
+##### Developer Notes
