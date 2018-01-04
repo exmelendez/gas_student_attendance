@@ -36,10 +36,13 @@ On the front end, the individual will receive one of the following error message
 
 ## The Inner Workings
 
-**The dropdown menu:** All of the selections available are actually being pulled from a a tab on a spreadsheet. ![Image of dropdown](http://gdurl.com/tAUR)
+**The dropdown menu:** All of the selections available are actually being pulled from the spreadsheet. ![Image of dropdown](http://gdurl.com/tAUR)
 
-If you click on the spreadsheet button you are able to view the names of the individuals who are displayed in the dropdown menu. This part was important for me since students drop in and out of the class and class rosters change with the semester. I wanted to create a way for the drop down to update automatically.
+Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
 
 ![student list](http://gdurl.com/4u6l)
+
+
+**Checking In:** The check in process is rather straight forward. A student will select their name from the dropdown menu then cick on the *Check-In* button. ![check-in verification](http://gdurl.com/OmD7)
