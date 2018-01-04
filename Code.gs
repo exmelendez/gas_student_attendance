@@ -10,11 +10,6 @@ function doGet() {
   .evaluate(); 
 }
 
-function include(filename) {
-  return HtmlService.createHtmlOutputFromFile(filename)
-      .getContent();
-}
-
 function getStudents() {
   return students.getRange(2, 1, students.getLastRow() - 1)
     .getValues()
@@ -104,44 +99,6 @@ function createTimeStamp(input){
   }
 }
 
-/*
-**
-***
-
-Functions below this are not currently being used
-
-***
-**
-*/
-
-//Checks row of dates to check for prescence of current date
-function datePresent(date){
-  
-  for (var i = 1; i < transactionList.length; i++){
-    if (transactionList[i][1] === date && date != ""){
-      return true;
-    }
-  }
-  return false;
-}
-
-//Save data to specific row
-function saveDateToRow(row, time){
-
-  students.getRange(row + 2, 2).setValue(time);
-}
-
-//Checks row of student names to check for it's prescence
-function namePresent(name){
-  
-  for (var i = 1; i < allData.length; i++){
-    if (allData[i][0] === name && name != ""){
-      return true;
-    }
-  }
-  return false;
-}
-
-function testMsg(){
-  return "JavaScript Msg";
+function removeRows(){
+  transactions.deleteRows(2, transactions.getLastRow()-1);
 }

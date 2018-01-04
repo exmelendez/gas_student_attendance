@@ -8,6 +8,27 @@
         cursor: pointer;
       }
       
+      #footer_msg{
+         text-align: center;
+      }
+      
+      #spreadsheetLink{
+         text-align: center;
+      }
+      <!--
+      #clear_sheet_link{
+         text-align: right;
+      }
+-->
+      .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+}
+ 
     </style>
   </head>
   <body>
@@ -29,11 +50,27 @@
   <hr>
   <center>
     <div id="student_status"></div>
-    </center>
+  </center>
+  
+<div class="footer">
+  <p id="footer_msg">For educational purposes. View the spreadsheet or reset the data below.</p>
+ 
+  <h4 id="spreadsheetLink">
+  <a href="https://github.com/exmelendez/google-apps-script/tree/student_attendance" target="_blank">
+<img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="Visit Github Page" width="42" height="42" border="0" title="Visit Github Page"></a>
+  
+  <a href="https://docs.google.com/spreadsheets/d/1WCgggJcrpLfhtxrBjurWriF7Y5xrMVLXypvfNZfYoYk/edit?usp=sharing" target="_blank">
+<img src="http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Sheets-icon.png" alt="View active Spreadsheet" width="42" height="42" border="0" title="View active spreadsheet"></a>
+<a href="#">
+<img src="https://cdn3.iconfinder.com/data/icons/basic-icon-set/32/test-13-512.png" alt="Clear data from Spreadsheet" width="42" height="42" border="0" title="Clear spreadsheet data" id="refreshBtn"></a>
+  </h4>
+  
+</div>
     
      <script>
     
           document.querySelector('#btn').addEventListener("click", myFunction);
+          document.querySelector('#refreshBtn').addEventListener("click", resetRows);
           
           function myFunction(){
           var name = document.getElementById("select").value;
@@ -46,6 +83,12 @@
        div.innerHTML = statusMsg;
        document.getElementById("checkInForm").reset();
       }
+      
+      function resetRows(){
+      var div = document.getElementById("student_status");
+            google.script.run.removeRows();
+            div.innerHTML = "Spreadsheet reset";
+          }
           
     </script>
   </body>
