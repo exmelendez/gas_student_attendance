@@ -45,4 +45,12 @@ Clicking on the spreadsheet button will allow you to view the spreadsheet where 
 ![student list](http://gdurl.com/4u6l)
 
 
-**Checking In:** The check in process is rather straight forward. A student will select their name from the dropdown menu then cick on the *Check-In* button. ![check-in verification](http://gdurl.com/OmD7)
+**Checking In:** The check in process is rather straight forward. A student will select their name from the dropdown menu then cick on the *Check-In* button. Aftwards the student is presented with a confirmation and the time of their check-in.
+
+![check-in verification](http://gdurl.com/OmD7)
+
+Clicking on the spreadsheet button will also allow you to view and confirm the entries. Choose the *transactions* tab to view the check-in entries.
+
+![transactions tab](http://gdurl.com/yDkR)
+
+![checked-in entries](http://gdurl.com/8ZDU)
