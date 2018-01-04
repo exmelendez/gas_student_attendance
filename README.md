@@ -72,6 +72,9 @@ function removeRows(){
 
 
 
+
+
+
 ### Developer Notes
 One of the issues I encountered was differences in date due to time zone formatting. To resolve this ensure that both the settings on your Google Sheet and on your Google Apps Script Project are set to your desired timezone.
 
