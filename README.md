@@ -30,7 +30,4 @@ if (name === "" || name === " -- select -- "){
 On the front end, the individual will receive one of the following error messages...
 
 ![Image of error message]
-(https://assets-cdn.github.com/images/modules/open_graph/github-octocat.png)
-
-![Image of duplicate check]
-(http://gdurl.com/ombF)
+(https://octodex.github.com/images/yaktocat.png)
