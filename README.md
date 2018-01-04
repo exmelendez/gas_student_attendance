@@ -29,6 +29,6 @@ if (name === "" || name === " -- select -- "){
 
 On the front end, the individual will receive one of the following error messages...
 ![Image of error message]
-(https://drive.google.com/open?id=1ThMBY2dmJbynamLfvLvBjBrg4xo0aPYL)
+(http://gdurl.com/cLor)
 ![Image of duplicate check]
-(https://drive.google.com/file/d/1HVm5uSeoKJdvgmAb2Kk_iVEX3OEGuhTR/view?usp=sharing)
+(http://gdurl.com/ombF)
