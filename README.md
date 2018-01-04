@@ -29,6 +29,8 @@ if (name === "" || name === " -- select -- "){
 
 On the front end, the individual will receive one of the following error messages...
 <p align="center">
+    
 ![Image of error message](http://gdurl.com/cLor)
 ![Image of check-in duplicate error](http://gdurl.com/ombF)
+
 </p>
