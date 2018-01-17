@@ -32,7 +32,7 @@ On the front end, the individual will receive one of the following error message
     
 ![Image of error message](http://gdurl.com/cLor)
 
-![Image of check-in duplicate error](http://gdurl.com/ombF)
+![Image of check-in duplicate error](https://gdurl.com/QRPZ)
 
 
 ## The Inner Workings
