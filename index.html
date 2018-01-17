@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>    
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      
-      #btn {
-        text-decoration: underline;
-        cursor: pointer;
-      }
       
       #footer_msg{
          text-align: center;
@@ -15,11 +11,7 @@
       #spreadsheetLink{
          text-align: center;
       }
-      <!--
-      #clear_sheet_link{
-         text-align: right;
-      }
--->
+
       .footer {
    position: fixed;
    left: 0;
@@ -43,7 +35,7 @@
           <option><?= options[i] ?></option>
        <? } ?>
       </select>
-      <a id="btn">Check-In</a>
+      <input id="submitBtn" type="button" onclick="onSubmit()" value="Submit">
     </form>
     </center>
   
@@ -53,7 +45,7 @@
   </center>
   
 <div class="footer">
-  <p id="footer_msg">For educational purposes. View the spreadsheet or reset the data below.</p>
+  <p id="footer_msg">For educational and demonstration purposes. View the spreadsheet or reset the data below.</p>
  
   <h4 id="spreadsheetLink">
   <a href="https://github.com/exmelendez/google-apps-script/tree/student_attendance" target="_blank">
@@ -69,10 +61,11 @@
     
      <script>
     
-          document.querySelector('#btn').addEventListener("click", myFunction);
           document.querySelector('#refreshBtn').addEventListener("click", resetRows);
           
-          function myFunction(){
+          function onSubmit(){
+          document.getElementById("submitBtn").disabled = true;
+          
           var name = document.getElementById("select").value;
             google.script.run.withSuccessHandler(onSuccess)
           .checkIn(name);
@@ -82,6 +75,7 @@
        var div = document.getElementById("student_status");
        div.innerHTML = statusMsg;
        document.getElementById("checkInForm").reset();
+       document.getElementById("submitBtn").disabled = false;
       }
       
       function resetRows(){
