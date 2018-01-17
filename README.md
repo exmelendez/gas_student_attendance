@@ -88,5 +88,6 @@ One of the issues I encountered was differences in date due to time zone formatt
 
 ![GAS Settings](http://gdurl.com/iOVE)
 
+
 #### Updates
-**January 17th, 2018**: Removed text button for actual, plus added functionality to disable button when pressed until data is submitted and the dropdown refreshed.
+**January 17th, 2018**: Removed text button for actual button, plus added functionality to disable button when pressed until data is submitted and the dropdown refreshed.
