@@ -48,7 +48,7 @@ Clicking on the spreadsheet button will allow you to view the spreadsheet where 
 
 **Checking In:** The check in process is straight forward. A student will select their name from the dropdown menu then click on the *Check-In* button. Aftwards the student is presented with a confirmation and the time of their check-in.
 
-![check-in verification](http://gdurl.com/OmD7)
+![check-in msg](https://gdurl.com/xKMx)
 
 Clicking on the spreadsheet button will also allow you to view and confirm the entries. Choose the *transactions* tab to view the check-in entries.
 
@@ -89,5 +89,5 @@ One of the issues I encountered was differences in date due to time zone formatt
 ![GAS Settings](http://gdurl.com/iOVE)
 
 
-#### Updates
+#### UPDATES
 **January 17th, 2018**: Removed text button for actual button, plus added functionality to disable button when pressed until data is submitted and the dropdown refreshed.
