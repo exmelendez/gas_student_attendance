@@ -1,4 +1,8 @@
-var ss = SpreadsheetApp.openById("1uYutf-lLH6mz_OGxh74RK3oewsrp0hFllyh_XTxf3N8");
+/*Old/original Spreadsheet */
+//var ss = SpreadsheetApp.openById("1uYutf-lLH6mz_OGxh74RK3oewsrp0hFllyh_XTxf3N8");
+
+/* New spreadsheet for Mr. Fantauzzi */
+var ss = SpreadsheetApp.openById("1XHnt1qBk8vcjLWxAoLJICwz-8L6uqVeQ68J7tNI2KjQ");
 var students = ss.getSheetByName("students");
 var transactions = ss.getSheetByName("transactions");
 var allData = students.getRange(2, 1, students.getLastRow(), students.getLastColumn()).getValues();
@@ -63,7 +67,7 @@ function restroomLog(name){
         if (nameArray[j] === dateArray[i]){
           
           if (transactions.getRange(nameArray[j] + 2, 4).getValue()  != ""){
-            return name +" has already take a restroom break today.";
+            return name +" has already taken a restroom break today.";
           } else {
             transactions.getRange(nameArray[j] + 2, 4).setValue(time);
             return name + " logged for restroom at " + time;
@@ -110,6 +114,20 @@ function dateRows(date){
     }
   } 
     return matchingDateRows;
+}
+
+//returns String number of matching current dates
+function dateCount(){
+  var date = currentDate();
+  var matchingDateRows = [];
+  
+  for (var i = 0; i < transactionList.length; i++){
+    var strDate = String(transactionList[i][1]);
+    if (strDate.substring(4, 15) === date){
+      matchingDateRows.push(i);
+    }
+  } 
+    return String(matchingDateRows.length);
 }
 
 //returns array of rows with matching names

@@ -93,19 +93,26 @@ body {font-family: Arial;}
 </div>
     
     </center>
+    <div id="student_count"></div>
      <script>
           
           function onSubmit(){
           document.getElementById("submitBtn").disabled = true;
           
           var name = document.getElementById("select").value;
-            google.script.run.withSuccessHandler(onSuccess)
-          .checkIn(name);
+          google.script.run.withSuccessHandler(onSuccess).checkIn(name);
+          google.script.run.withSuccessHandler(updateStudentCount).dateCount();
+          }
+          
+          function updateStudentCount(studentCount){
+          var studentCountDiv = document.getElementById("student_count");
+          studentCountDiv.innerHTML = studentCount;
           }
           
           function onSuccess(statusMsg){
           var div = document.getElementById("student_status");
           div.innerHTML = statusMsg;
+          
           document.getElementById("checkInForm").reset();
           document.getElementById("submitBtn").disabled = false;
           }
@@ -114,8 +121,8 @@ body {font-family: Arial;}
           document.getElementById("restroomBtn").disabled = true;
           
           var name = document.getElementById("restroomSelect").value;
-            google.script.run.withSuccessHandler(restroomSuccess)
-          .restroomLog(name);
+          google.script.run.withSuccessHandler(restroomSuccess).restroomLog(name);
+          google.script.run.withSuccessHandler(updateStudentCount).dateCount();
           }
           
           function restroomSuccess(statusMsg){
@@ -141,10 +148,11 @@ body {font-family: Arial;}
           
           document.getElementById(action).style.display = "block";
           evt.currentTarget.className += " active";
-}
+          }
 
   // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click();
+  google.script.run.withSuccessHandler(updateStudentCount).dateCount();
           
     </script>
   </body>
