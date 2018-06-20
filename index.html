@@ -2,8 +2,12 @@
 <html>
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-body {font-family: Arial;}
+
+    <style>
+      
+      body {
+font-family: Arial;
+}
 
 /* Style the tab */
 .tab {
@@ -41,7 +45,46 @@ body {font-family: Arial;}
     border: 1px solid #ccc;
     border-top: none;
 }
+      
+      #footer_msg{
+         text-align: center;
+      }
+      
+      #spreadsheetLink{
+         text-align: center;
+      }
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
 </style>
+
   </head>
   <body>
   <center>
@@ -67,13 +110,14 @@ body {font-family: Arial;}
       </select>
       <input id="submitBtn" type="button" onclick="onSubmit()" value="Check-In">
     </form>
-    
+
     <br>
     <div id="student_status"></div>
     </div>
-    
-      <!-- Restroom Tab Section -->
+  
+<!-- Restroom Tab Section -->
     <div id="Restroom" class="tabcontent">
+
   <h3>Restroom</h3>
 <form id="restroomForm">
       <p><em>Select your name from the list</em></p>
@@ -90,6 +134,25 @@ body {font-family: Arial;}
     
        <br>
        <div id="restroom_status"></div>
+    
+</div>
+    
+    <div id="student_count"></div>
+
+  </center>
+  
+<div class="footer">
+  <p id="footer_msg">For educational and demonstration purposes. View the spreadsheet or reset the data below.</p>
+ 
+  <h4 id="spreadsheetLink">
+  <a href="https://github.com/exmelendez/google-apps-script/tree/student_attendance" target="_blank">
+<img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="Visit Github Page" width="42" height="42" border="0" title="Visit Github Page"></a>
+  
+  <a href="https://docs.google.com/spreadsheets/d/1WCgggJcrpLfhtxrBjurWriF7Y5xrMVLXypvfNZfYoYk/edit?usp=sharing" target="_blank">
+<img src="http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Sheets-icon.png" alt="View active Spreadsheet" width="42" height="42" border="0" title="View active spreadsheet"></a>
+<a href="#">
+<img src="https://cdn3.iconfinder.com/data/icons/basic-icon-set/32/test-13-512.png" alt="Clear data from Spreadsheet" width="42" height="42" border="0" title="Clear spreadsheet data" id="refreshBtn"></a>
+  </h4>
 </div>
     
     </center>
@@ -100,8 +163,9 @@ body {font-family: Arial;}
           document.getElementById("submitBtn").disabled = true;
           
           var name = document.getElementById("select").value;
-          google.script.run.withSuccessHandler(onSuccess).checkIn(name);
-          google.script.run.withSuccessHandler(updateStudentCount).dateCount();
+
+            google.script.run.withSuccessHandler(onSuccess).checkIn(name);
+            google.script.run.withSuccessHandler(updateStudentCount).dateCount();
           }
           
           function updateStudentCount(studentCount){
@@ -131,6 +195,13 @@ body {font-family: Arial;}
           document.getElementById("restroomForm").reset();
           document.getElementById("restroomBtn").disabled = false;
           }
+      
+          function resetRows(){
+          var div = document.getElementById("student_status");
+          google.script.run.removeRows();
+          div.innerHTML = "Spreadsheet reset";
+          }
+
           
           /* Code below for the tab selections */
           
