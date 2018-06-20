@@ -1,4 +1,8 @@
-var ss = SpreadsheetApp.openById("1WCgggJcrpLfhtxrBjurWriF7Y5xrMVLXypvfNZfYoYk");
+/*Old/original Spreadsheet */
+//var ss = SpreadsheetApp.openById("1uYutf-lLH6mz_OGxh74RK3oewsrp0hFllyh_XTxf3N8");
+
+/* New spreadsheet for Mr. Fantauzzi */
+var ss = SpreadsheetApp.openById("1XHnt1qBk8vcjLWxAoLJICwz-8L6uqVeQ68J7tNI2KjQ");
 var students = ss.getSheetByName("students");
 var transactions = ss.getSheetByName("transactions");
 var allData = students.getRange(2, 1, students.getLastRow(), students.getLastColumn()).getValues();
@@ -43,6 +47,40 @@ function checkIn(name){
   
 }
 
+function restroomLog(name){
+  var nameArray = nameRows(name);
+  var date = currentDate();
+  var dateArray = dateRows(date);
+  var time = createTimeStamp("time");
+  
+  if (name === "" || name === " -- select -- "){
+    return "Not a valid selection";
+  }
+  
+  if (dateArray.length < 1){
+    transactions.appendRow([name, currentDate(), time, time]);
+    return name + " logged for bathroom and checked in at " + time;
+  } 
+  
+    for (var i = 0; i < dateArray.length; i++){
+      for (var j = 0; j < nameArray.length; j++){
+        if (nameArray[j] === dateArray[i]){
+          
+          if (transactions.getRange(nameArray[j] + 2, 4).getValue()  != ""){
+            return name +" has already taken a restroom break today.";
+          } else {
+            transactions.getRange(nameArray[j] + 2, 4).setValue(time);
+            return name + " logged for restroom at " + time;
+          }
+        }
+      }
+    }
+  
+  transactions.appendRow([name, currentDate(), time, time]);
+  return name + " logged for bathroom and checked in at " + time;
+  
+}
+
 //Adds a row w/ specified data to spreadsheet
 function addDataToSS (name) {
   transactions.appendRow([name, currentDate(), createTimeStamp("time")]);
@@ -52,6 +90,17 @@ function addDataToSS (name) {
 function currentDate(){
   var date = Date();
   return date.charAt(4) + date.charAt(5) + date.charAt(6) + " " + date.charAt(8) + date.charAt(9) + " " + date.charAt(11) + date.charAt(12) + date.charAt(13) + date.charAt(14);
+}
+
+//Checks row of student names to check for it's prescence
+function namePresent(name){
+  
+  for (var i = 1; i < allData.length; i++){
+    if (allData[i][0] === name && name != ""){
+      return true;
+    }
+  }
+  return false;
 }
 
 //returns array of rows with matching specified date
@@ -65,6 +114,20 @@ function dateRows(date){
     }
   } 
     return matchingDateRows;
+}
+
+//returns String number of matching current dates
+function dateCount(){
+  var date = currentDate();
+  var matchingDateRows = [];
+  
+  for (var i = 0; i < transactionList.length; i++){
+    var strDate = String(transactionList[i][1]);
+    if (strDate.substring(4, 15) === date){
+      matchingDateRows.push(i);
+    }
+  } 
+    return String(matchingDateRows.length);
 }
 
 //returns array of rows with matching names
@@ -99,6 +162,18 @@ function createTimeStamp(input){
   }
 }
 
-function removeRows(){
-  transactions.deleteRows(2, transactions.getLastRow()-1);
+/*
+**
+***
+
+Functions below this are not currently being used
+
+***
+**
+*/
+
+//Save data to specific row
+function saveDateToRow(row, time){
+
+  students.getRange(row + 2, 2).setValue(time);
 }

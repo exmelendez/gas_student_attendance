@@ -30,14 +30,14 @@ if (name === "" || name === " -- select -- "){
 
 On the front end, the individual will receive one of the following error messages...
     
-![Image of error message](http://gdurl.com/cLor)
+![Image of error message](https://gdurl.com/Cdps)
 
-![Image of check-in duplicate error](http://gdurl.com/ombF)
+![Image of check-in duplicate error](https://gdurl.com/QRPZ)
 
 
 ## The Inner Workings
 
-**The dropdown menu:** All of the selections available are actually being pulled from the spreadsheet. ![Image of dropdown](http://gdurl.com/tAUR)
+**The dropdown menu:** All of the selections available are actually being pulled from the spreadsheet. ![Image of dropdown](https://gdurl.com/5Kqs)
 
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
@@ -48,7 +48,7 @@ Clicking on the spreadsheet button will allow you to view the spreadsheet where 
 
 **Checking In:** The check in process is straight forward. A student will select their name from the dropdown menu then click on the *Check-In* button. Aftwards the student is presented with a confirmation and the time of their check-in.
 
-![check-in verification](http://gdurl.com/OmD7)
+![check-in msg](https://gdurl.com/xKMx)
 
 Clicking on the spreadsheet button will also allow you to view and confirm the entries. Choose the *transactions* tab to view the check-in entries.
 
@@ -87,3 +87,7 @@ One of the issues I encountered was differences in date due to time zone formatt
 **Google Apps Script**
 
 ![GAS Settings](http://gdurl.com/iOVE)
+
+
+#### UPDATES
+**January 17th, 2018**: Removed text button for actual button, plus added functionality to disable button when pressed until data is submitted and the dropdown refreshed.
