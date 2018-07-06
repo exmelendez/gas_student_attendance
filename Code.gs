@@ -1,9 +1,5 @@
 var ss = SpreadsheetApp.openById("1WCgggJcrpLfhtxrBjurWriF7Y5xrMVLXypvfNZfYoYk");
-var students = ss.getSheetByName("students");
 var transactions = ss.getSheetByName("transactions");
-
-Logger.log(nameSearchCurrentSize("Bill Nye", "totalCount"));
-function test(){}
 
 function doGet() { 
   return HtmlService
@@ -12,6 +8,8 @@ function doGet() {
 }
 
 function getStudents() {
+  var students = ss.getSheetByName("students");
+  
   return students.getRange(2, 1, students.getLastRow() - 1)
     .getValues()
     .reduce(function (a, b) { // flatten array
