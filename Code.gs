@@ -1,12 +1,9 @@
-/*Old/original Spreadsheet */
-//var ss = SpreadsheetApp.openById("1uYutf-lLH6mz_OGxh74RK3oewsrp0hFllyh_XTxf3N8");
-
-/* New spreadsheet for Mr. Fantauzzi */
-var ss = SpreadsheetApp.openById("1XHnt1qBk8vcjLWxAoLJICwz-8L6uqVeQ68J7tNI2KjQ");
+var ss = SpreadsheetApp.openById("1WCgggJcrpLfhtxrBjurWriF7Y5xrMVLXypvfNZfYoYk");
 var students = ss.getSheetByName("students");
 var transactions = ss.getSheetByName("transactions");
-var allData = students.getRange(2, 1, students.getLastRow(), students.getLastColumn()).getValues();
-var transactionList = transactions.getRange(2, 1, transactions.getLastRow(), transactions.getLastColumn()).getValues();
+
+Logger.log(nameSearchCurrentSize("Bill Nye", "totalCount"));
+function test(){}
 
 function doGet() { 
   return HtmlService
@@ -22,131 +19,88 @@ function getStudents() {
   }, []);
 }
 
-//Saves name + timestamp data to SS if they are not already checked in. If not a message is returned stating person already checked in.
-function checkIn(name){
-  var nameArray = nameRows(name);
-  var date = currentDate();
-  var dateArray = dateRows(date);
+function checkIn(name, type){
   
   if (name === "" || name === " -- select -- "){
     return "Not a valid selection";
   }
   
-  if (nameArray.length > 0 && dateArray.length > 0){
-    for (var i = 0; i < dateArray.length; i++){
-      for (var j = 0; j < nameArray.length; j++){
-        if (nameArray[j] === dateArray[i]){
-          return name + " already checked in today.";
-        }
-      }
-    }
-  }
+  var namePresent = nameSearchCurrentSize(name, "search");
+  var currentTime = currentDate("time");
   
-  addDataToSS(name);
-  return name + " checked in at " + createTimeStamp("time");
-  
-}
+  switch (type) {
+    case "attendance":
 
-function restroomLog(name){
-  var nameArray = nameRows(name);
-  var date = currentDate();
-  var dateArray = dateRows(date);
-  var time = createTimeStamp("time");
-  
-  if (name === "" || name === " -- select -- "){
-    return "Not a valid selection";
-  }
-  
-  if (dateArray.length < 1){
-    transactions.appendRow([name, currentDate(), time, time]);
-    return name + " logged for bathroom and checked in at " + time;
+      if (namePresent > -1){
+        return name + " already logged for today.";
+      } else {
+        addDataToSS(name);
+        return name + " checked in at " + currentTime + ".";
+      }
+      
+    case "restroom":
+      
+      if (namePresent === -1) {
+        return name + " has not been logged in.";
+      } else if (transactions.getRange(namePresent + 2, 4).getValue() != ""){
+        return name +" has already taken a restroom break today.";
+      } else {
+        transactions.getRange(namePresent + 2, 4).setValue(currentTime);
+        return name + " logged for restroom at " + currentTime;
+      }
   } 
-  
-    for (var i = 0; i < dateArray.length; i++){
-      for (var j = 0; j < nameArray.length; j++){
-        if (nameArray[j] === dateArray[i]){
-          
-          if (transactions.getRange(nameArray[j] + 2, 4).getValue()  != ""){
-            return name +" has already taken a restroom break today.";
-          } else {
-            transactions.getRange(nameArray[j] + 2, 4).setValue(time);
-            return name + " logged for restroom at " + time;
-          }
-        }
-      }
-    }
-  
-  transactions.appendRow([name, currentDate(), time, time]);
-  return name + " logged for bathroom and checked in at " + time;
-  
 }
 
-//Adds a row w/ specified data to spreadsheet
+/* Returns either the number of logs for the current day or the index location of a name based on the String/Filter parameter given.
+For name search, -1 is returned if no match is found */
+function nameSearchCurrentSize(name, searchType){
+  var transactionList = transactions.getRange(2, 1, transactions.getLastRow(), transactions.getLastColumn()).getValues();
+  var date = currentDate("fullDate");
+
+  switch (searchType) {
+    case "search":
+
+      var matchingIndex = -1;
+      
+      /* Date/Name search */
+      for (var i = 0; i < transactionList.length; i++){
+        var logDate = String(transactionList[i][1]).substring(4, 15);
+        var logName = String(transactionList[i][0]);
+    
+        if (logDate === date && logName === name){
+          matchingIndex = i;
+        }
+      }
+  
+      return matchingIndex;
+
+    case "totalCount":
+      
+      var numOfDateMatch = 0;
+      
+      for (var i = 0; i < transactionList.length; i++){
+        var strDate = String(transactionList[i][1]);
+        if (strDate.substring(4, 15) === date){
+          numOfDateMatch++;
+        }
+      } 
+      return numOfDateMatch;
+  }
+}
+
+//Adds a new row to SS with the given parameter name along with the current date & time on ajoining columns
 function addDataToSS (name) {
-  transactions.appendRow([name, currentDate(), createTimeStamp("time")]);
+  transactions.appendRow([name, currentDate("fullDate"), currentDate("time")]);
 }
 
-//returns current date formatted like Apr 15 2017
-function currentDate(){
-  var date = Date();
-  return date.charAt(4) + date.charAt(5) + date.charAt(6) + " " + date.charAt(8) + date.charAt(9) + " " + date.charAt(11) + date.charAt(12) + date.charAt(13) + date.charAt(14);
-}
-
-//Checks row of student names to check for it's prescence
-function namePresent(name){
-  
-  for (var i = 1; i < allData.length; i++){
-    if (allData[i][0] === name && name != ""){
-      return true;
-    }
-  }
-  return false;
-}
-
-//returns array of rows with matching specified date
-function dateRows(date){
-  var matchingDateRows = [];
-  
-  for (var i = 0; i < transactionList.length; i++){
-    var strDate = String(transactionList[i][1]);
-    if (strDate.substring(4, 15) === date){
-      matchingDateRows.push(i);
-    }
-  } 
-    return matchingDateRows;
-}
-
-//returns String number of matching current dates
-function dateCount(){
-  var date = currentDate();
-  var matchingDateRows = [];
-  
-  for (var i = 0; i < transactionList.length; i++){
-    var strDate = String(transactionList[i][1]);
-    if (strDate.substring(4, 15) === date){
-      matchingDateRows.push(i);
-    }
-  } 
-    return String(matchingDateRows.length);
-}
-
-//returns array of rows with matching names
-function nameRows(name){
-  var matchingNameRows = [];
-  
-  for (var i = 0; i < transactionList.length; i++){
-    if (transactionList[i][0] === name){
-      matchingNameRows.push(i);
-    }
-  }
-    return matchingNameRows;
-}
-
-//returns a string of the full current date by default or can be filtered by string keyword for a specific part of the string date.
-function createTimeStamp(input){
+//returns a string of the full current date by default or can be filtered by String keyword for a specific section.
+function currentDate(input){
   var date = Date();
   
   switch (input) {
+    case "fullDate":
+        return date.charAt(4) + date.charAt(5) + date.charAt(6) + " " + date.charAt(8) + 
+          date.charAt(9) + " " + date.charAt(11) + date.charAt(12) + date.charAt(13) + date.charAt(14);
     case "dayName":
         return date.charAt(0) + date.charAt(1) + date.charAt(2);
     case "month":
@@ -162,18 +116,7 @@ function createTimeStamp(input){
   }
 }
 
-/*
-**
-***
-
-Functions below this are not currently being used
-
-***
-**
-*/
-
-//Save data to specific row
-function saveDateToRow(row, time){
-
-  students.getRange(row + 2, 2).setValue(time);
+//Deletes all rows from log spreadsheet
+function removeRows(){
+  transactions.deleteRows(2, transactions.getLastRow()-1);
 }
