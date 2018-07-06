@@ -196,6 +196,15 @@ font-family: Arial;
           
           document.getElementById(action).style.display = "block";
           evt.currentTarget.className += " active";
+          
+          if (action === "Attendance"){
+          var div = document.getElementById("restroom_status");
+            div.innerHTML = "";
+            }
+            else {
+            var div = document.getElementById("student_status");
+            div.innerHTML = "";
+            }
           }
 
   // Get the element with id="defaultOpen" and click on it
