@@ -9,8 +9,6 @@ Upon first visiting the page, by default, the *Attendance* tab is selected. The 
 
 ![Attendance Tab](https://gdurl.com/kSRuz)
 
-**Logging Attendance**
-
 Logging attendance is straight forward and simple. While on the attendance tab, the student must choose their name from the dropdown menu.
 
 ![choose name for attendance log](https://gdurl.com/ZNB7)
