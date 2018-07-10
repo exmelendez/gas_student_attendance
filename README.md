@@ -10,9 +10,13 @@ Upon first visiting the page, by default, the *Attendance* tab is selected. The 
 ![Attendance Tab](https://gdurl.com/kSRuz)
 
 **Restroom restriction**
-Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in. The *nameSearchCurrentSize* method above is also used to check if they have already logged their attendance for the day and also checks to see if the restroom column on the spreadsheet is empty.
+
+Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in.
 
 ![Not logged in restroom error message](https://gdurl.com/6qKf)
+
+The *nameSearchCurrentSize* method above is used to check if they have already logged their attendance for the day while the *if* statement checks to see if the restroom column on the spreadsheet is empty.
+
 
 ```javascript
 if (namePresent === -1) {
