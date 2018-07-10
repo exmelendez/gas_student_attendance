@@ -1,5 +1,7 @@
 # Classroom Attendance
-**Objective:** Develop self serve method for 5th grade students to log their attendance and their restroom usage during technology class.
+
+### Objective:
+Develop self serve method for 5th grade students to log their attendance and their restroom usage during technology class.
 
 **Try it out:** [https://goo.gl/c4FwMu](https://goo.gl/c4FwMu)
 >Disclaimer: _Google account needed to view/access_
