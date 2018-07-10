@@ -9,6 +9,38 @@ Upon first visiting the page, by default, the *Attendance* tab is selected. The 
 
 ![Attendance Tab](https://gdurl.com/kSRuz)
 
+**Logging Attendance**
+
+Logging attendance is straight forward and simple. While on the attendance tab, the student must choose their name from the dropdown menu.
+
+![choose name for attendance log](https://gdurl.com/ZNB7)
+
+**The dropdown menu**
+
+The dropdown menu is being created programmatically from the Google Spreadsheet associated with it. This allows an administrator or a teacher to update the student list easily from the document.
+
+```javascript
+function getStudents() {
+  var students = ss.getSheetByName("students");
+  
+  return students.getRange(2, 1, students.getLastRow() - 1)
+    .getValues()
+    .reduce(function (a, b) { // flatten array
+      return a.concat(b[0])
+  }, []);
+}
+```
+
+```html
+<select id="attendanceSelect">
+      <option disabled selected value> -- select -- </option>
+      <? var options = getStudents()
+        for (var i = 0; i < options.length; i++) { ?>
+          <option><?= options[i] ?></option>
+       <? } ?>
+      </select>
+```
+
 **Restroom restriction**
 
 Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in.
