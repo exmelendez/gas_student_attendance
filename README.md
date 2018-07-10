@@ -5,9 +5,25 @@
 >Disclaimer: _Google account needed to view/access_
 
 ### Introduction
-Upon first visiting the page, by default, the *Attendance* tab is selected. The site only allows students to log their attendance or log their restroom useage. Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage will give you a message indicating the user is not logged in.
+Upon first visiting the page, by default, the *Attendance* tab is selected. The site only allows students to log their attendance or log their restroom useage.
+
+![Attendance Tab](https://gdurl.com/kSRuz)
+
+**Restroom restriction**
+Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in. The *nameSearchCurrentSize* method above is also used to check if they have already logged their attendance for the day and also checks to see if the restroom column on the spreadsheet is empty.
 
 ![Not logged in restroom error message](https://gdurl.com/6qKf)
+
+```javascript
+if (namePresent === -1) {
+        return name + " has not been logged in.";
+      } else if (transactions.getRange(namePresent + 2, 4).getValue() != ""){
+        return name +" has already taken a restroom break today.";
+      } else {
+        transactions.getRange(namePresent + 2, 4).setValue(currentTime);
+        return name + " logged for restroom at " + currentTime;
+      }
+```
 
 ### Error prevention + Duplicate check
 Naturally, human error is a possibility, I needed to ensure there were methods to prevent students from checking-in more than once and to prevent from the default drop menu selecter being entered into the spreadsheet. The first *if statement* ensures that the selected option is not null or the default *-- select --* option.
