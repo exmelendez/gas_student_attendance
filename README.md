@@ -20,7 +20,6 @@ Logging attendance is straight forward and simple. While on the attendance tab, 
 The dropdown menu is being created programmatically from the Google Spreadsheet associated with it. This allows an administrator or a teacher to update the student list easily from the document.
 
 JavaScript
-
 ```javascript
 function getStudents() {
   var students = ss.getSheetByName("students");
@@ -33,9 +32,7 @@ function getStudents() {
 }
 ```
 
-HTML
-
-
+**HTML**
 ```html
 <select id="attendanceSelect">
       <option disabled selected value> -- select -- </option>
