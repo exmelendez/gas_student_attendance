@@ -17,6 +17,8 @@ Logging attendance is straight forward and simple. While on the attendance tab, 
 
 The dropdown menu is being created programmatically from the Google Spreadsheet associated with it. This allows an administrator or a teacher to update the student list easily from the document.
 
+![student list](http://gdurl.com/4u6l)
+
 *JavaScript:*
 ```javascript
 function getStudents() {
@@ -99,9 +101,6 @@ On the front end, the individual will receive one of the following error message
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
-
-![student list](http://gdurl.com/4u6l)
-
 
 **Checking In:** The check in process is straight forward. A student will select their name from the dropdown menu then click on the *Check-In* button. Aftwards the student is presented with a confirmation and the time of their check-in.
 
