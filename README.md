@@ -1,4 +1,4 @@
-# Classroom Attendance
+# Classroom Attendance - Usage + Understanding
 
 ### Objective:
 Develop self serve method for 5th grade students to log their attendance and their restroom usage during technology class.
@@ -47,6 +47,8 @@ function getStudents() {
 After choosing their name and clicking the button, they are given a success message with their time of attendance log.
 
 ![check-in msg](https://gdurl.com/xKMx)
+
+# Classroom Attendance - Errors + Checks
 
 **Restroom restriction**
 
