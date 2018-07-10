@@ -44,6 +44,9 @@ function getStudents() {
        <? } ?>
       </select>
 ```
+After choosing their name and clicking the button, they are given a success message with their time of attendance log.
+
+![check-in msg](https://gdurl.com/xKMx)
 
 **Restroom restriction**
 
@@ -105,8 +108,6 @@ Clicking on the spreadsheet button will allow you to view the spreadsheet where 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
 
 **Checking In:** The check in process is straight forward. A student will select their name from the dropdown menu then click on the *Check-In* button. Aftwards the student is presented with a confirmation and the time of their check-in.
-
-![check-in msg](https://gdurl.com/xKMx)
 
 Clicking on the spreadsheet button will also allow you to view and confirm the entries. Choose the *transactions* tab to view the check-in entries.
 
