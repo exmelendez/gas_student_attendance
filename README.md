@@ -4,6 +4,11 @@
 **Try it out:** [https://script.google.com/macros/s/AKfycbzAgy1WyRXrFauwN4l3RX1WMhQszR4yE30QLzuc-3El7SEnhvw/exec](https://script.google.com/macros/s/AKfycbzAgy1WyRXrFauwN4l3RX1WMhQszR4yE30QLzuc-3El7SEnhvw/exec)
 >Disclaimer: _Google account needed to view/access_
 
+### Introduction
+Upon first visiting the page, by default, the *Attendance* tab is selected. The site only allows students to log their attendance or log their restroom useage. Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage will give you a message indicating the user is not logged in.
+
+![Not logged in restroom error message](https://goo.gl/WJDBKy)
+
 ### Error prevention + Duplicate check
 Naturally, human error is a possibility, I needed to ensure there were methods to prevent students from checking-in more than once and to prevent from the default drop menu selecter being entered into the spreadsheet. The first *if statement* ensures that the selected option is not null or the default *-- select --* option.
 
