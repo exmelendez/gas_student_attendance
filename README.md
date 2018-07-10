@@ -1,4 +1,4 @@
-# Classroom Attendance - Usage + Understanding
+# Classroom Attendance: Usage + Understanding
 
 ### Objective:
 Develop self serve method for 5th grade students to log their attendance and their restroom usage during technology class.
@@ -48,7 +48,15 @@ After choosing their name and clicking the button, they are given a success mess
 
 ![check-in msg](https://gdurl.com/xKMx)
 
-# Classroom Attendance - Errors + Checks
+
+**Logging restroom usage**
+
+Once a student has logged their attendance in, they are able to log themselves for the restroom should they need to use it. Clicking on the *Restroom* tab presents a drop down identical to the one found in the *Attendance* tab. It also uses the same *getStudents* method to create the dropdown.
+
+![Restroom log tab](https://gdurl.com/Hv63)
+
+
+# Classroom Attendance: Errors + Checks
 
 **Restroom restriction**
 
