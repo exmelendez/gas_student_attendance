@@ -61,10 +61,10 @@ font-family: Arial;
    background-color: red;
    color: white;
 }
- 
+
  </style>
   </head>
-  <body>
+  <body>  
   <center>
   
   <!-- Main Tab Selection Section -->
@@ -117,9 +117,11 @@ font-family: Arial;
 </center>
 
     <div id="student_count"></div>
+    
 
-<center>  
-  
+
+<center>
+
 <div class="footer">
   <p id="footer_msg">For educational and demonstration purposes. View the spreadsheet or reset the data below.</p>
  
@@ -129,15 +131,19 @@ font-family: Arial;
   
   <a href="https://docs.google.com/spreadsheets/d/1WCgggJcrpLfhtxrBjurWriF7Y5xrMVLXypvfNZfYoYk/edit?usp=sharing" target="_blank">
 <img src="http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/Sheets-icon.png" alt="View active Spreadsheet" width="42" height="42" border="0" title="View active spreadsheet"></a>
-<a href="#">
-<img src="https://cdn3.iconfinder.com/data/icons/basic-icon-set/32/test-13-512.png" alt="Clear data from Spreadsheet" width="42" height="42" border="0" title="Clear spreadsheet data" id="refreshBtn"></a>
+
+<a href="#"><img src="https://cdn3.iconfinder.com/data/icons/basic-icon-set/32/test-13-512.png" alt="Clear data from Spreadsheet" width="42" height="42" border="0" title="Clear spreadsheet data" id="refreshBtn"></a>
   </h4>
   
   </div>
 </center>   
-     <script>
+
+  <script>
     
-          document.querySelector('#refreshBtn').addEventListener("click", resetRows);
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    google.script.run.withSuccessHandler(updateStudentCount).nameSearchCurrentSize("null", "totalCount");
+    document.querySelector('#refreshBtn').addEventListener("click", resetSS);
           
           function attendanceSubmit(){
             document.getElementById("attendanceBtn").disabled = true;
@@ -180,8 +186,7 @@ font-family: Arial;
             div.innerHTML = "Spreadsheet reset";
           }
           
-          /* Code below for the tab selections */
-          
+          /* Function below for the tab selections */
           function openEvent(evt, action) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -206,11 +211,17 @@ font-family: Arial;
             div.innerHTML = "";
             }
           }
-
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-  google.script.run.withSuccessHandler(updateStudentCount).nameSearchCurrentSize("null", "totalCount");
           
-    </script>
+          function resetSS() {
+            var attendanceDiv = document.getElementById("student_status");
+            var restroomDiv = document.getElementById("restroom_status");
+          
+            google.script.run.removeRows();
+            google.script.run.withSuccessHandler(updateStudentCount).nameSearchCurrentSize("null", "totalCount");
+            attendanceDiv.innerHTML = "Spreadsheet reset";
+            restroomDiv.innerHTML = "Spreadsheet reset";
+           } 
+          
+  </script>
   </body>
 </html>
