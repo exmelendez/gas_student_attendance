@@ -7,11 +7,17 @@ Develop self serve method for 5th grade students to log their attendance and the
 >Disclaimer: _Google account needed to view/access_
 
 ### Introduction
-Upon first visiting the page, by default, the *Attendance* tab is selected. The site only allows students to log their attendance or log their restroom useage.
+Upon first visiting the page, by default, the *Attendance* tab is selected. 
+```html
+<button class="tablinks" onclick="openEvent(event, 'Attendance')" id="defaultOpen">Attendance</button>
+```
+```javascript
+document.getElementById("defaultOpen").click();
+```
 
 ![Attendance Tab](https://gdurl.com/kSRuz)
 
-Logging attendance is straight forward and simple. While on the attendance tab, the student must choose their name from the dropdown menu.
+The site only allows students to log their attendance or log their restroom useage. Logging attendance is straight forward and simple. While on the attendance tab, the student must choose their name from the dropdown menu.
 
 ![choose name for attendance log](https://gdurl.com/ZNB7)
 
