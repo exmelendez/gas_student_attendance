@@ -95,17 +95,11 @@ if (namePresent > -1){
 ![Log Success or Dup Msg](https://gdurl.com/tLaj)
 
 #### Duplicate Restroom Log Prevention
-The same duplicate check is implemented in the *Restroom* category. Additionally, if the student has not logged in, meaning if the *nameSearchCurrentSize* function returns a *-1*, the *checkIn* function will return a message letting the user know that the student is not logged in.
-
-![Restroom - Not Logged in msg](https://gdurl.com/tAQ6)
-
-### Restroom restriction
-
-Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in.
+While the restroom section is also designed to not allow duplicate restroom logs, it also checks for login. Before they are able to log their restroom use, the student must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in.
 
 ![Not logged in restroom error message](https://gdurl.com/6qKf)
 
-The *nameSearchCurrentSize* method above is used to check if they have already logged their attendance for the day while the *if* statement checks to see if the restroom column on the spreadsheet is empty.
+The *nameSearchCurrentSize* method mentioned above is used to check if they have already logged their attendance for the day while the *if* statement checks to see if the restroom column on the spreadsheet is empty.
 
 
 ```javascript
