@@ -64,7 +64,7 @@ Once a student has logged their attendance in, they are able to log themselves f
 # Classroom Attendance: Errors + Checks
 
 ### Duplicate Log Prevention
-The web app is only designed for a single period class which takes place once a day; because of this I have designed it to only allow one log per day, per task (i.e. Attendance or Restroom). I wrote a function titled *nameSearchCurrentSize* which takes in two parameters, a *name* and a *search* type. Inside of this function is a switch statement filtered by a *search* type of *search* or *total count*. Total count will return the number of currently logged students for the day, I'll explain that further later on. The switch case I want to bring attention to is *search*, this one iterates through the entire spreadsheet checking for the current date and the name given in the parameter field. If found, it will return the index of it's location, otherwise it will return a *-1*.
+The web app is only designed for a single period class which takes place once a day; because of this I have designed it to only allow one log per day, per task (i.e. Attendance or Restroom). I wrote a function titled *nameSearchCurrentSize* which takes in two parameters, a *name* and a *search* type. Inside of this function is a switch statement filtered by a *search* type of *search* or *totalCount*. Total count will return the number of currently logged students for the day, I'll explain that further later on. The switch case I want to bring attention to is *search*, this one iterates through the entire spreadsheet checking for the current date and the name given in the parameter field. If found, it will return the index of it's location, otherwise it will return a *-1*.
 
 ```javascript
 var matchingIndex = -1;
@@ -115,11 +115,14 @@ Before they are able to log their restroom use, the student must first be logged
 
 ![Not logged in restroom error message](https://gdurl.com/6qKf)
 
+#### Null Check
+Naturally, human error is a possibility; early on I realized the students could possibly submit the default *-- select --* (or *null*) as an option, making the spreadsheet data invalid. The simple *if* statement below fixes that.
 
-
-### Error prevention + Duplicate check
-Naturally, human error is a possibility, I needed to ensure there were methods to prevent students from checking-in more than once and to prevent from the default drop menu selecter being entered into the spreadsheet. The first *if statement* ensures that the selected option is not null or the default *-- select --* option.
-
+```javascript
+if (name === "" || name === " -- select -- "){
+    return "Not a valid selection";
+}
+```
 On the front end, the individual will receive one of the following error messages...
     
 ![Image of error message](https://gdurl.com/Cdps)
