@@ -179,7 +179,7 @@ for (var i = 0; i < transactionList.length; i++){
   return numOfDateMatch;
 ```
 
-**FYI**: I designed this function to have multiple uses to prevent creating more than one 2D array of the the spreadsheet and it's data entirety. My idea is to minimize the potentially high volume of data being called.
+**FYI**: I designed the *nameSearchCurrentSize()* function to have multiple uses to prevent creating more than one 2D array of the the spreadsheet and it's data entirety. My idea is to minimize the potentially high volume of data being called.
 
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
