@@ -115,7 +115,7 @@ Before they are able to log their restroom use, the student must first be logged
 
 ![Not logged in restroom error message](https://gdurl.com/6qKf)
 
-#### Null Check
+### Null Check
 Naturally, human error is a possibility; early on I realized the students could possibly submit the default *-- select --* (or *null*) as an option, making the spreadsheet data invalid. The simple *if* statement below fixes that.
 
 ```javascript
@@ -123,7 +123,7 @@ if (name === "" || name === " -- select -- "){
     return "Not a valid selection";
 }
 ```
-On the front end, the individual will receive one of the following error messages...
+On the front end, the individual will receive the error message below...
     
 ![Image of error message](https://gdurl.com/Cdps)
 
