@@ -138,6 +138,32 @@ document.getElementById("attendanceBtn").disabled = true;
 
 # Classroom Attendance: Extras
 
+### Status Message Delete
+The status message received on either the *Attendance* or *Restroom* tab lets the user know if an action was successful. On the backend the actions are processed by the *checkIn* function which in return provides a String to a frontend *Div*.
+
+```javascript
+var div = document.getElementById("student_status");
+div.innerHTML = statusMsg;
+```
+
+Providing a status message is useful, but I found that navigating to another tab and returning to the tab again would present the last message previously given. My first initial solution was to have timed messages that disappear after a certain duration, but I found that not all HTML/CSS functions operate normally on *Google Apps Script*. The backup solution was to make the app seem more dynamic by removing the message when a user switches to another tab.
+
+Inside of the function that allows a user to switch tabs I added an *if* statement that will remove the messages from other tabs.
+
+```javascript
+if (action === "Attendance"){
+  var div = document.getElementById("restroom_status");
+  div.innerHTML = "";
+} else {
+  var div = document.getElementById("student_status");
+  div.innerHTML = "";
+}
+```
+
+### Student Counter
+
+
+
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
