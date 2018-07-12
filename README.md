@@ -187,23 +187,23 @@ This project was developed to be used in a world environment at a school in the 
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
 
-![checked-in entries](http://gdurl.com/8ZDU)
-
 On the spreadsheet feel free to Choose the *transactions* tab to view the check-in entries.
 
 ![transactions tab](http://gdurl.com/yDkR)
 
-## Resetting
-For demonstration purposes I have created a function to reset and clear the spreadsheet. An individual can only be checked-in once a day which would have prevented others from using or viewing it in action. Clicking on the *reset* button will erase all rows from the spreadsheet and present you with a confirmation message.
+![checked-in entries](http://gdurl.com/8ZDU)
+
+### Resetting
+An individual can only be checked-in once a day, this prevents you the user from using or viewing it in action if all the students are aleady checked in/logged. Clicking on the *reset* button at the bottom of the page will delete all rows from the spreadsheet, present you with a confirmation message and ultimately allow you to use the app.
+
+![reset confirmation message](http://gdurl.com/JOMF)
+
 ```javascript
 function removeRows(){
   transactions.deleteRows(2, transactions.getLastRow()-1);
 }
 ```
-
 ![Reset button](http://gdurl.com/ZFRa)
-
-![reset confirmation message](http://gdurl.com/JOMF)
 
 ### Developer Notes
 One of the issues I encountered was differences in date due to time zone formatting. To resolve this ensure that both the settings on your Google Sheet and on your Google Apps Script Project are set to your desired timezone.
