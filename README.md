@@ -228,4 +228,8 @@ One of the issues I encountered was differences in date due to time zone formatt
 * Integrated JS & HTML that will count current logged students and present it's return int on the frontend
 * Moved SS 2D array variable to a new *nameSearchCurrentSize()* function as it was only being called twice and I found no need to call it upon creation. This may cause further load time
 * Removed *currentDate* function and joined that functionality as another switch case in the function that was already handling a lot of the date functions
-* Wrote HTML to remove last status when switching between category tabs
+* Wrote HTML to remove last status message when switching between category tabs
+* Redesigned HTML to return SS reset message to both log categories as it was previously only writing to the *Attendance* category
+* Separated null/blank check *if* statement to be the first return in the *checkIn* function to decrease slow speed
+* Redesigned functions that check for current login, removing arrays with indexes to only a variable that will present the current index. At which point the function/for loop will stop.
+* Modified Restroom functionality from Live version to not allow restroom logs unless already logged in (Initially it would log both attendance & restroom if no Attendance log was found)
