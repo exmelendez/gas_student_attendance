@@ -92,6 +92,8 @@ if (namePresent > -1){
 }
 ```
 
+![Log Success or Dup Msg](https://gdurl.com/tLaj)
+
 ### Restroom restriction
 
 Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in.
