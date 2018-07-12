@@ -81,7 +81,7 @@ var matchingIndex = -1;
   
       return matchingIndex;
 ```
-When the name is found, the initial function called ( *checkIn()* ) will either return a message indicating the student has already been logged or will add the information to the spreadsheet as a new row.
+When the name is found, the initial function ( called *checkIn()* ) will either return a message indicating the student has already been logged or will add the information to the spreadsheet as a new row.
 
 ```javascript
 if (namePresent > -1){
@@ -93,6 +93,11 @@ if (namePresent > -1){
 ```
 
 ![Log Success or Dup Msg](https://gdurl.com/tLaj)
+
+#### Duplicate Restroom Log Prevention
+The same duplicate check is implemented in the *Restroom* category. Additionally, if the student has not logged in, meaning if the *nameSearchCurrentSize* function returns a *-1*, the *checkIn* function will return a message letting the user know that the student is not logged in.
+
+![Restroom - Not Logged in msg](https://gdurl.com/tAQ6)
 
 ### Restroom restriction
 
