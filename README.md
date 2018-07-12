@@ -95,9 +95,7 @@ if (namePresent > -1){
 ![Log Success or Dup Msg](https://gdurl.com/tLaj)
 
 #### Duplicate Restroom Log Prevention
-While the restroom section is also designed to not allow duplicate restroom logs, it also checks for login. Before they are able to log their restroom use, the student must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in.
-
-![Not logged in restroom error message](https://gdurl.com/6qKf)
+The restroom section is also designed not to allow duplicate restroom logs.
 
 The *nameSearchCurrentSize* method mentioned above is used to check if they have already logged their attendance for the day while the *if* statement checks to see if the restroom column on the spreadsheet is empty.
 
@@ -112,6 +110,12 @@ if (namePresent === -1) {
         return name + " logged for restroom at " + currentTime;
       }
 ```
+
+Before they are able to log their restroom use, the student must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in.
+
+![Not logged in restroom error message](https://gdurl.com/6qKf)
+
+
 
 ### Error prevention + Duplicate check
 Naturally, human error is a possibility, I needed to ensure there were methods to prevent students from checking-in more than once and to prevent from the default drop menu selecter being entered into the spreadsheet. The first *if statement* ensures that the selected option is not null or the default *-- select --* option.
