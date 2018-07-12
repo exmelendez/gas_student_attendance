@@ -220,3 +220,12 @@ One of the issues I encountered was differences in date due to time zone formatt
 
 ### UPDATES
 **January 17th, 2018**: Removed text button for actual button, plus added functionality to disable button when pressed until data is submitted and the dropdown refreshed.
+
+**July 6th, 2018**: Complete redesign, code clean and added/modified functionality. . .
+* Integrated Restroom category HTML/CSS
+* Modified Attendance category HTML/CSS to have more specific names and forms to diferentiate from Restroom category
+* Modified *checkIn* function to have a switch statement that will sort the log type (i.e. Attendance/Restroom)
+* Integrated JS & HTML that will count current logged students and present it's return int on the frontend
+* Moved SS 2D array variable to a new *nameSearchCurrentSize()* function as it was only being called twice and I found no need to call it upon creation. This may cause further load time
+* Removed *currentDate* function and joined that functionality as another switch case in the function that was already handling a lot of the date functions
+* Wrote HTML to remove last status when switching between category tabs
