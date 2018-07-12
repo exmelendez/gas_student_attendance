@@ -233,3 +233,4 @@ One of the issues I encountered was differences in date due to time zone formatt
 * Separated null/blank check *if* statement to be the first return in the *checkIn* function to decrease slow speed
 * Redesigned functions that check for current login, removing arrays with indexes to only a variable that will present the current index. At which point the function/for loop will stop.
 * Modified Restroom functionality from Live version to not allow restroom logs unless already logged in (Initially it would log both attendance & restroom if no Attendance log was found)
+* Modified student counter to appropiately change upon SS reset
