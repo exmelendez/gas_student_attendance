@@ -114,11 +114,6 @@ On the front end, the individual will receive one of the following error message
 
 ![Image of check-in duplicate error](https://gdurl.com/QRPZ)
 
-
-## The Inner Workings
-
-**The dropdown menu:** All of the selections available are actually being pulled from the spreadsheet. ![Image of dropdown](https://gdurl.com/5Kqs)
-
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
