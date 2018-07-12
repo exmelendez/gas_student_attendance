@@ -198,14 +198,14 @@ An individual can only be checked-in once a day, this prevents you the user from
 
 ![reset confirmation message](http://gdurl.com/JOMF)
 
+![Reset button](http://gdurl.com/ZFRa)
+
 ```javascript
 function removeRows(){
   transactions.deleteRows(2, transactions.getLastRow()-1);
 }
 ```
-![Reset button](http://gdurl.com/ZFRa)
-
-### Developer Notes
+# Developer Notes
 One of the issues I encountered was differences in date due to time zone formatting. To resolve this ensure that both the settings on your Google Sheet and on your Google Apps Script Project are set to your desired timezone.
 
 **Google Sheet**
