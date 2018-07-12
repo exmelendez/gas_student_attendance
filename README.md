@@ -61,10 +61,38 @@ Once a student has logged their attendance in, they are able to log themselves f
 
 ![Restroom log tab](https://gdurl.com/Hv63)
 
-
 # Classroom Attendance: Errors + Checks
 
-**Restroom restriction**
+### Duplicate Log Prevention
+The web app is only designed for a single period class which takes place once a day; because of this I have designed it to only allow one log per day, per task (i.e. Attendance or Restroom). I wrote a function titled *nameSearchCurrentSize* which takes in two parameters, a *name* and a *search* type. Inside of this function is a switch statement filtered by a *search* type of *search* or *total count*. Total count will return the number of currently logged students for the day, I'll explain that further later on. The switch case I want to bring attention to is *search*, this one iterates through the entire spreadsheet checking for the current date and the name given in the parameter field. If found, it will return the index of it's location, otherwise it will return a *-1*.
+
+```javascript
+var matchingIndex = -1;
+      
+      /* Date/Name search */
+      for (var i = 0; i < transactionList.length; i++){
+        var logDate = String(transactionList[i][1]).substring(4, 15);
+        var logName = String(transactionList[i][0]);
+    
+        if (logDate === date && logName === name){
+          matchingIndex = i;
+        }
+      }
+  
+      return matchingIndex;
+```
+When the name is found, the initial function called ( *checkIn()* ) will either return a message indicating the student has already been logged or will add the information to the spreadsheet as a new row.
+
+```javascript
+if (namePresent > -1){
+        return name + " already logged for today.";
+} else {
+        addDataToSS(name);
+        return name + " checked in at " + currentTime + ".";
+}
+```
+
+### Restroom restriction
 
 Before they are able to log their restroom use, they must first be logged in. Attempting to log restroom usage without logging their attendance will present a message indicating the user is not logged in.
 
@@ -114,11 +142,11 @@ On the front end, the individual will receive one of the following error message
 
 ![Image of check-in duplicate error](https://gdurl.com/QRPZ)
 
+# Classroom Attendance: Extras
+
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
-
-**Checking In:** The check in process is straight forward. A student will select their name from the dropdown menu then click on the *Check-In* button. Aftwards the student is presented with a confirmation and the time of their check-in.
 
 Clicking on the spreadsheet button will also allow you to view and confirm the entries. Choose the *transactions* tab to view the check-in entries.
 
@@ -159,5 +187,5 @@ One of the issues I encountered was differences in date due to time zone formatt
 ![GAS Settings](http://gdurl.com/iOVE)
 
 
-#### UPDATES
+### UPDATES
 **January 17th, 2018**: Removed text button for actual button, plus added functionality to disable button when pressed until data is submitted and the dropdown refreshed.
