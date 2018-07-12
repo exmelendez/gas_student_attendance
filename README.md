@@ -179,6 +179,8 @@ for (var i = 0; i < transactionList.length; i++){
   return numOfDateMatch;
 ```
 
+added function there to save on space/loading twice
+
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
