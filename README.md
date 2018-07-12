@@ -181,11 +181,14 @@ for (var i = 0; i < transactionList.length; i++){
 
 **FYI**: I designed the *nameSearchCurrentSize()* function to have multiple uses to prevent creating more than one 2D array of the the spreadsheet and it's data entirety. My idea is to minimize the potentially high volume and load time of data being called.
 
-Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
+# Testing
+
+This project was developed to be used in a world environment at a school in the South Bronx. For the purposes of safety and confidentiality I have created this version as my testing and "next phase" development module before deploying live. On the bottom of the page you will find a button that allows you to view the spreadsheet and see the live data be added or removed as you manipulate it on the front end.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
 
-Clicking on the spreadsheet button will also allow you to view and confirm the entries. Choose the *transactions* tab to view the check-in entries.
+
+On the spreadsheet feel free to Choose the *transactions* tab to view the check-in entries.
 
 ![transactions tab](http://gdurl.com/yDkR)
 
