@@ -165,6 +165,20 @@ The web app assists in keeping a record of students attendance and their restroo
 
 ![Student Counter/Tracker](https://gdurl.com/XUMS)
 
+I previously mentioned that the *nameSearchCurrentSize* function has a switch statement with a *totalCount* filter/parameter. Inside of this switch is a forloop that iterates through the entire spreadsheet looking for entries of the current day. Since every student can only have one date entry per day, it will return the total count integer of the number of students logged for the day.
+
+```javascript
+var numOfDateMatch = 0;
+      
+for (var i = 0; i < transactionList.length; i++){
+  var strDate = String(transactionList[i][1]);
+  if (strDate.substring(4, 15) === date){
+    numOfDateMatch++;
+  }
+} 
+  return numOfDateMatch;
+```
+
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
