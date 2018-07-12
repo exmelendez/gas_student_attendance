@@ -127,6 +127,15 @@ On the front end, the individual will receive the error message below...
     
 ![Image of error message](https://gdurl.com/Cdps)
 
+### Single Submission
+Depending on the state of the connected Network, the speed time of submission and receiving a result message may vary by a few seconds. Initially I found multiple student entries as the students were clicking the *log* button multiple times since an instant result was not occuring. To combat and prevent this, I implemented code that disables the button until completion.
+
+```html
+document.getElementById("attendanceBtn").disabled = true;
+```
+
+![Submit button progress](https://gdurl.com/c-Qy)
+
 # Classroom Attendance: Extras
 
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
