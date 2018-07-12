@@ -161,8 +161,9 @@ if (action === "Attendance"){
 ```
 
 ### Student Counter
+The web app assists in keeping a record of students attendance and their restroom useage. This is great to look back at and use as a reference. However, there was one scenario that I felt needed to be accessible immediately and that is safety. In the event that a class needs to evacuate immediately due to a fire, or any another number of reasons, a teacher still needs to be held accountable to their students. I implemented a simple student counter/tracker to let the staff member (or instructor) know how many students should currently be present. This counter can be found at the bottom left corner of the page/app.
 
-
+![Student Counter/Tracker](https://gdurl.com/XUMS)
 
 Clicking on the spreadsheet button will allow you to view the spreadsheet where the names are being hosted. This was important as students change with the semester or drop in and out of class. I wanted the dropdown menu to dynamically, and automatically, be generated from the spreadsheet.
 
