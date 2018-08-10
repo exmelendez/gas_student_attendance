@@ -179,11 +179,11 @@ for (var i = 0; i < transactionList.length; i++){
   return numOfDateMatch;
 ```
 
-**FYI**: I designed the *nameSearchCurrentSize()* function to have multiple uses to prevent creating more than one 2D array of the the spreadsheet and it's data entirety. My idea is to minimize the potentially high volume and load time of data being called.
+**FYI**: I designed the *nameSearchCurrentSize()* function to have multiple uses to prevent creating more than one 2D array of the spreadsheet and it's data entirety. My idea is to minimize the potentially high volume and load time of data being called.
 
 # Testing
 
-This project was developed to be used in a world environment at a school in the South Bronx. For the purposes of safety and confidentiality I have created this version as my testing and "next phase" development module before deploying live. On the bottom of the page you will find a button that allows you to view the spreadsheet and see the live data be added or removed as you manipulate it on the front end.
+This project was developed to be used in a real world environment at a school in the South Bronx. For the purposes of safety and confidentiality I have created this version as my testing and "next phase" development module before deploying live. On the bottom of the page you will find a button that allows you to view the spreadsheet and see the live data be added or removed as you manipulate it on the front end.
 
 ![Spreadsheet Button](http://gdurl.com/oz36t)
 
